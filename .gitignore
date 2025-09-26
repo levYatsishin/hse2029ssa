@@ -5,51 +5,69 @@ build/
 dist/
 wheels/
 *.egg-info
+*.egg
+*.manifest
 
 # Virtual environments
 .venv
-# My
-node_modules
-.svelte-kit/
-
-# Output
-.output
-.vercel
-.netlify
-.wrangler
-/.svelte-kit
-/build
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Env
+venv/
 .env
 .env.*
 !.env.example
 !.env.test
+.conda/
+*.conda
 
-# Vite
+# Jupyter / Notebooks
+.ipynb_checkpoints/
+.virtual_documents/
+*.nbconvert.ipynb
+
+# Logs / Reports
+logs/
+*.log
+*.out
+*.err
+.coverage*
+*.cover
+.cache/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Node / Svelte
+node_modules/
+.svelte-kit/
+.output
+.vercel
+.netlify
+.wrangler
+/build
+
+# Config timestamp junk
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# Python
-venv/
-__pycache__/
-*cache*/
+# OS files
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+._*
 
-# logs
-logs/
-
-uv.lock
-
+# Data / Secrets
 /data/*
 !/data/raw
 !/data/constants
-
 /secrets
-
 /.analysis
 
-.ipynb_checkpoints/
+# Project-specific
+# task_pdfs/
+anaconda_projects/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
