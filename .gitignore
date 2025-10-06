@@ -1,3 +1,11 @@
+# custom folder for c/cpp binariestest.synctex.gz
+bin/
+
+latex_build/ 
+*.tex
+figures/
+
+
 # Python-generated files
 __pycache__/
 *.py[oc]
