@@ -4,6 +4,7 @@ bin/
 latex_build/ 
 *.tex
 figures/
+*.synctex.gz
 
 
 # Python-generated files

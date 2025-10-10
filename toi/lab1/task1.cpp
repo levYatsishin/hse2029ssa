@@ -2,12 +2,12 @@
 
 int main() {
   float S;
-  unsigned char N = 11;
+  unsigned char N = 0.0f;
 
   S = 1.0f / N;
 
   int iters = 0;
-  while (S <= 1.0f) {
+  while (S != 1.0f) {
     printf("iters=%d, S=%.9E\n", iters, S);
     S = S + 1.0f / N;
     ++iters;
