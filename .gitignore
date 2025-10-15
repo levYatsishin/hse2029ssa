@@ -1,11 +1,10 @@
 # custom folder for c/cpp binariestest.synctex.gz
 bin/
 
-latex_build/ 
+latex_build/
 *.tex
 figures/
 *.synctex.gz
-
 
 # Python-generated files
 __pycache__/
@@ -14,69 +13,54 @@ build/
 dist/
 wheels/
 *.egg-info
-*.egg
-*.manifest
 
-# Virtual environments
-.venv
+# Caches
+.cache/
+.ruff_cache/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environment 
+.venv/
 venv/
+.conda/
+*.conda
+project_filebrowser.db
+
+# Environment 
 .env
 .env.*
 !.env.example
 !.env.test
-.conda/
-*.conda
+/secrets
+
+# Output
+/build
+
+# Logs
+logs/
+*.log
+
+# Web dev
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+node_modules
+.svelte-kit/
 
 # Jupyter / Notebooks
 .ipynb_checkpoints/
 .virtual_documents/
 *.nbconvert.ipynb
 
-# Logs / Reports
-logs/
-*.log
-*.out
-*.err
-.coverage*
-*.cover
-.cache/
-.mypy_cache/
-.pytest_cache/
-.ruff_cache/
-
-# Node / Svelte
-node_modules/
-.svelte-kit/
-.output
-.vercel
-.netlify
-.wrangler
-/build
-
-# Config timestamp junk
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
-
-# OS files
-.DS_Store
-Thumbs.db
-.AppleDouble
-.LSOverride
-._*
-
-# Data / Secrets
-/data/*
-!/data/raw
-!/data/constants
-/secrets
-/.analysis
-
-# Project-specific
-# task_pdfs/
-anaconda_projects/
-
-# Editors / IDEs
-.vscode/
-.idea/
+# IDEs
 *.swp
 *.swo
+.vscode/
+.idea/
+
+# Other
+uv.lock
+.analysis/
