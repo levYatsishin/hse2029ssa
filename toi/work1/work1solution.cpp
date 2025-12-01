@@ -364,7 +364,7 @@ void SaveToFile()
     }
     for (int i = 0; i < RecCount; i++)
     {
-        // Сохраняем все записи, включая помеченные, с флагом deleted
+        // Сохраняются все записи, включая помеченные deleted
         f << ExpArr[i].Id << ";" << ExpArr[i].Category << ";" << ExpArr[i].Note << ";";
         f << ExpArr[i].Day << ";" << ExpArr[i].Month << ";" << ExpArr[i].Year << ";";
         f << ExpArr[i].Amount << ";" << (ExpArr[i].Deleted ? 1 : 0) << endl;
@@ -459,7 +459,7 @@ void BuildCatIndex()
 
 void BuildDateIndex()
 {
-    DateIndexCount = 0; // пересоздаём индекс
+    DateIndexCount = 0; // пересоздается индекс
     for (int i = 0; i < RecCount; i++)
     {
         if (!ExpArr[i].Deleted)
@@ -725,7 +725,6 @@ void BuildAllIndexes()
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
     char ch = '0';
     string cmd;
 
