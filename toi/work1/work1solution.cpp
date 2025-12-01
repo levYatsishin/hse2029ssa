@@ -2,9 +2,6 @@
 #include <string>
 #include <fstream>
 #include <stdio.h>
-#include <limits>
-#include <cstdlib>
-
 using namespace std;
 
 const int MaxRec = 30; // Количество записей в массиве
@@ -37,16 +34,16 @@ struct DateIndexElement
 Expense ExpArr[MaxRec];
 int RecCount = 0;
 
-CatIndexElement CatIndex[MaxRec + 1]; // с барьером
+CatIndexElement CatIndex[MaxRec + 1];
 int CatIndexCount = 0;
 
-DateIndexElement DateIndexArr[MaxRec + 1]; // с барьером
+DateIndexElement DateIndexArr[MaxRec + 1];
 int DateIndexCount = 0;
 
 void ClearInput()
 {
     cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    while (cin && cin.get() != '\n') {}
     printf("Неверный ввод\n");
 }
 
