@@ -1,0 +1,7 @@
+301;food;lunch;10;5;2025;820;0
+302;transport;subway;11;5;2025;140;0
+303;books;study;12;5;2025;1900;0
+304;sport;gym;13;5;2025;3100;0
+305;utilities;electricity;15;5;2025;4200;0
+306;health;dentist;18;5;2025;5600;0
+307;gifts;birthday;20;5;2025;2300;0
