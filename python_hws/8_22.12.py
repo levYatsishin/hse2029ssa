@@ -10,7 +10,6 @@ API_BASE = "https://cloud-api.yandex.net/v1/disk"
 
 
 def fetch_uploaded_files(token, folder="Backup"):
-    """Grab a list of filenames already on Disk. Not fancy, just enough."""
     headers = {"Authorization": "OAuth %s" % token}
     limit = 100
     offset = 0
@@ -23,7 +22,6 @@ def fetch_uploaded_files(token, folder="Backup"):
             params={"path": folder, "limit": limit, "offset": offset},
         )
         if resp.status_code != 200:
-            # TODO: probably should surface this in the UI, but it's OK for now.
             break
 
         data = resp.json()
@@ -52,11 +50,10 @@ def run(handler_class=BaseHTTPRequestHandler):
 
 class HttpGetHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        # This fetch is a little chatty, but it keeps the page state honest.
         uploaded = fetch_uploaded_files(YANDEX_TOKEN)
         uploaded_set = set(uploaded)
 
-        def fname2html(fname,uploaded_set):
+        def fname2html(fname, uploaded_set):
             style = ""
             if fname in uploaded_set:
                 style = ' style="background-color: rgba(0, 200, 0, 0.25)"'
@@ -71,7 +68,8 @@ class HttpGetHandler(BaseHTTPRequestHandler):
         self.end_headers()
         files = os.listdir("pdfs")
         # print("Debug, uploaded set:", uploaded_set)
-        self.wfile.write("""
+        self.wfile.write(
+            """
             <html>
                 <head>
                 </head>
@@ -81,10 +79,13 @@ class HttpGetHandler(BaseHTTPRequestHandler):
                     </ul>
                 </body>
             </html>
-        """.format(files="\n".join([fname2html(fn, uploaded_set) for fn in files])).encode())
+        """.format(
+                files="\n".join([fname2html(fn, uploaded_set) for fn in files])
+            ).encode()
+        )
 
     def do_POST(self):
-        content_len=int(self.headers.get('Content-Length'))
+        content_len = int(self.headers.get("Content-Length"))
         fname = self.rfile.read(content_len).decode("utf-8")
         local_path = "pdfs/%s" % fname
         ya_path = f"Backup/{urllib.parse.quote(fname)}"
@@ -93,7 +94,7 @@ class HttpGetHandler(BaseHTTPRequestHandler):
         print(resp.text)
         upload_url = json.loads(resp.text)["href"]
         print(upload_url)
-        resp = put(upload_url, files={'file': (fname, open(local_path, 'rb'))})
+        resp = put(upload_url, files={"file": (fname, open(local_path, "rb"))})
         print(resp.status_code)
         self.send_response(200)
         self.end_headers()
